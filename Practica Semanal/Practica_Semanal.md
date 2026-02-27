@@ -90,7 +90,53 @@
 - Modele `Autor` (tiene nombre y lista de `Libro*`) y `Libro` (tiene título y `Autor*`).
 - Use forward declarations en los headers y defina los métodos en .cpp para evitar dependencias circulares.
 - Entregue los archivos .h, .cpp y un breve párrafo en MD explicando la solución.
+```cpp
+// Se declaran las clases una en la otra para que se conozcan
 
+/// Autor.h
+#include "Libro.h"
+#include <iostream>
+using namespace std;
+
+class Libro;
+class Autor {
+private:
+    string nombre;
+    Libro* libro[15];
+public:
+    Autor(string);
+};
+
+/// Autor.cpp
+#include "Autor.h"
+
+Autor::Autor(string nombre) {
+    this->nombre = nombre;
+}
+
+/// Libro.h
+#include <iostream>
+using namespace std;
+#include "Autor.h"
+class Autor;
+class Libro {
+private:
+    string titulo;
+    Autor* autor;
+public:
+    Libro(string titulo, Autor* autor);
+};
+
+/// Libro.cpp
+
+#include "Libro.h"
+
+Libro::Libro(string titulo, Autor *autor) {
+    this->titulo = titulo;
+    this->autor = autor;
+}
+
+```
 ---
 
 **Formato de entrega:** Código en los archivos correspondientes y respuestas/explicaciones en **archivo(s) MD (Markdown)**.

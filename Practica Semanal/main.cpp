@@ -2,6 +2,9 @@
 using namespace std;
 
 #include "Perro.h"
+#include "Libro.h"
+
+#include "Autor.h"
 
 int main() {
     // animal se deriva a mamifero y mamifero a perro.

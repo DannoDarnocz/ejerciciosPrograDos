@@ -6,4 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(practica_semanal main.cpp
         Animal.h
         Mamifero.h
-        Perro.h)
+        Perro.h
+        Autor.cpp
+        Autor.h
+        Libro.cpp
+        Libro.h)
