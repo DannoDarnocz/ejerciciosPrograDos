@@ -92,6 +92,7 @@
 - Entregue los archivos .h, .cpp y un breve párrafo en MD explicando la solución.
 ```cpp
 // Se declaran las clases una en la otra para que se conozcan
+// De esta manera el código no se rompe
 
 /// Autor.h
 #include "Libro.h"
