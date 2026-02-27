@@ -1,16 +1,33 @@
+
+
+#include "Automovil.h"
+#include "Rectangulo.h"
+#include "Circulo.h"
+#include "derivada2.h"
 #include <iostream>
+using namespace std;
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    derivada2 d2;
+    derivada1* d1 = &d2;
+    base* b1 = d1;
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
+    b1->hola();
+
+    Automovil a1;
+    Vehiculo* v1 = &a1;
+    // es upcast porque agarramos la clase derivada y ponemos un puntero de la base que agarre la responsabilidad del automovil creado
+    // se sabe que automovil es derivada de vehiculo por lo tanto al hacer el upcast no hay el riesgo de usar un metodo o atributo que no exista
+
+    Figura* figuras[5];
+    figuras[0]=new Rectangulo(2,2);
+    figuras[1]=new Rectangulo(3,2);
+    figuras[2]=new Circulo(23);
+    figuras[3]=new Circulo(1);
+
+    figuras[4]=new Rectangulo(30,2);
+
+    for (int i=0;i<5;i++) {
+        cout<<figuras[i]->area()<<endl;
     }
-
-    return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
