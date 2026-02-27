@@ -10,6 +10,6 @@ using namespace std;
 
 class Animal {
 public:
-    virtual void tipo();
+    virtual void tipo() {cout<<"soy un animal, wow"<<endl;};
 };
 #endif //PRACTICA_SEMANAL_ANIMAL_H

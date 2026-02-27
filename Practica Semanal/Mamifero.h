@@ -8,7 +8,7 @@
 
 class Mamifero :public Animal {
 public:
-    void tipo() override;
+    void tipo() override {cout<<"soy un mamifero, wow"<<endl;};
 };
 
 

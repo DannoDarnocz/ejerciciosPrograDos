@@ -7,7 +7,9 @@
 
 #include "Mamifero.h"
 class Perro: public Mamifero {
-    void tipo() override;
+public:
+    void tipo() override {cout<<"soy un perro, guau"<<endl;};
+    void ladrar(){cout<<"GUAU!!!"<<endl;}
 };
 
 
