@@ -10,5 +10,6 @@ public:
     Automovil() {
         cout << "automovil creado"<<endl;
     }
+    virtual ~Automovil() {}
 };
 #endif //UNTITLED_AUTOMOVIL_H

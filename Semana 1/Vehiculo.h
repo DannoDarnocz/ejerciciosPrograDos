@@ -14,6 +14,7 @@ public:
     Vehiculo() {
         cout << "vehiculo creado"<<endl;
     }
+    virtual ~Vehiculo() {}
 };
 
 #endif //UNTITLED_VEHICULO_H

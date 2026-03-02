@@ -12,4 +12,7 @@ add_executable(untitled main.cpp
         Automovil.h
         Circulo.h
         Figura.h
-        Rectangulo.h)
+        Rectangulo.h
+        Barco.h
+        Estudiante.h
+        Curso.h)
