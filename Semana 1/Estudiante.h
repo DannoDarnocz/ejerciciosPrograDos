@@ -10,6 +10,7 @@ class Curso;
 class Estudiante {
 private:
     string id;
+    Curso* curso;
 public:
     Estudiante(string id):id(id){};
     string getId() {
