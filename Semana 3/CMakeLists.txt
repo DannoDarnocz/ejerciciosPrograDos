@@ -3,4 +3,8 @@ project(Semana_3)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Semana_3 main.cpp)
+add_executable(Semana_3 main.cpp
+        IDispositivoSalida.h
+        Impresora.h
+        Consola.h
+        Archivo.h)

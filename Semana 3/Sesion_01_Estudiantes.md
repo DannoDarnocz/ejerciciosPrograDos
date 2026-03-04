@@ -25,17 +25,64 @@
 
 Interfaz `IDispositivoSalida` con `void escribir(string)`. Clases `Consola` y `Archivo` que la implementan. Clase `Impresora` que recibe un `IDispositivoSalida*` y delega en él el método `imprimir(string)`.
 
-```cpp
-// IDispositivoSalida, Consola, Archivo, Impresora
-
-```
+---
 
 ### Ejercicio 2: Cambiar dispositivo en tiempo de ejecución
 
 Añada a `Impresora` un método para cambiar el dispositivo de salida (por ejemplo `setDispositivo`). En `main` imprima primero por consola y luego “por archivo” sin crear otra Impresora.
 
 ```cpp
-// setDispositivo y uso en main
+// Ambos ejercicios están combinados en este
+
+class IDispositivoSalida {
+public:
+    virtual void escribir(string texto)=0;
+    virtual ~IDispositivoSalida() = default;
+};
+
+class Consola:public IDispositivoSalida {
+public:
+    void escribir(string texto) override {
+        cout << "Escrito a consola: " <<texto;
+    }
+};
+
+class Archivo:public IDispositivoSalida {
+public:
+    void escribir(string texto) override {
+        cout << "Escrito a archivo: " <<texto;
+    }
+};
+
+class Impresora {
+private:
+    IDispositivoSalida* dispositivo;
+public:
+    void imprimir(string texto) {
+        dispositivo->escribir(texto);
+    }
+
+    void setDispositivo(IDispositivoSalida* dispositivo) {
+        this->dispositivo = dispositivo;
+    }
+
+    ~Impresora() = default;
+};
+
+
+using namespace std;
+int main() {
+    Impresora impresora;
+    Archivo archivo;
+    Consola consola;
+
+    impresora.setDispositivo(&archivo);
+    impresora.imprimir("Hola, esto se muestra con el dispositivo archivo seleccionado");
+    cout << endl<< endl;
+    impresora.setDispositivo(&consola);
+    impresora.imprimir("Hola, esto se muestra con el dispositivo consola seleccionado");
+
+}
 
 ```
 
